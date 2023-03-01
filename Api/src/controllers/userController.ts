@@ -24,14 +24,28 @@ const allUsers = async () => {
 const findUserByEmail = async (value: {
     email: string
 }) => {
-    const user = await User.findOne({where:{
-        email: value.email
-    }})
+    const user = await User.findOne({email: value.email})
+    return user
+}
+
+const updateUser = async (value:{
+    name: string,
+    email:string,
+    password: string,
+    img:string
+}) => {
+    const user = await User.findOneAndUpdate ({email:value.email},
+        {name: value.name,
+        email:value.email,
+        password: value.password,
+        img:value.img})
+
     return user
 }
 
 export default {
     newUser,
     allUsers,
-    findUserByEmail
+    findUserByEmail,
+    updateUser
 }
