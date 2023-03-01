@@ -4,7 +4,7 @@ class User {
     @prop({required: true, trim:true})
     name: string
 
-    @prop({required: true, trim:true})
+    @prop({required: true, trim:true, unique:true})
     email:string
 
     @prop({required: true, trim:true})

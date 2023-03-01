@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import User from './models/User'
+import User from './schemas/User'
 
 async function connectDB () {
     const db = await mongoose.connect('mongodb://localhost/moveItdb');
