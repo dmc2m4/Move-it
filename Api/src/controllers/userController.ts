@@ -43,9 +43,16 @@ const updateUser = async (value:{
     return user
 }
 
+const deleteUser = async (value: {
+    email: string
+}) => {
+    await User.findOneAndDelete({email:value.email})
+}
+
 export default {
     newUser,
     allUsers,
     findUserByEmail,
-    updateUser
+    updateUser,
+    deleteUser
 }
