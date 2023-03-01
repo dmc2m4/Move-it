@@ -1,6 +1,11 @@
 import User from '../models/User'
 
-const newUser = async (value:any) => {
+const newUser = async (value:{
+    name:string,
+    email:string,
+    password: string,
+    img:string
+}) => {
     const user = new User({
         name: value.name,
         email: value.email,
@@ -11,6 +16,22 @@ const newUser = async (value:any) => {
     await user.save()
 }
 
+const allUsers = async () => {
+    const users = await User.find();
+    return users
+}
+
+const findUserByEmail = async (value: {
+    email: string
+}) => {
+    const user = await User.findOne({where:{
+        email: value.email
+    }})
+    return user
+}
+
 export default {
-    newUser
+    newUser,
+    allUsers,
+    findUserByEmail
 }
