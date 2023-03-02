@@ -1,12 +1,16 @@
 import { prop, getModelForClass } from "@typegoose/typegoose";
+import {Comment} from "./Comment"
 
-class Post {
+export class Post {
 
     @prop()
-    description: string
+    description: string;
 
     @prop()
     img: string[];
+
+    @prop({type : () => [Comment]})
+    comments: Comment[];
 }
 
 const postModel = getModelForClass(Post);

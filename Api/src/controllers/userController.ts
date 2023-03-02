@@ -13,12 +13,12 @@ const newUser = async (value:{
         img: value.img
     });
 
-    await user.save()
+    await user.save();
 }
 
 const allUsers = async () => {
     const users = await User.find();
-    return users
+    return users;
 }
 
 const findUserByEmail = async (value: {
