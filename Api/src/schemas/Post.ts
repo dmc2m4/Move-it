@@ -1,5 +1,6 @@
-import { prop, getModelForClass } from "@typegoose/typegoose";
+import { prop, getModelForClass, Ref } from "@typegoose/typegoose";
 import {Comment} from "./Comment"
+import {User} from "./User";
 
 export class Post {
 
@@ -11,6 +12,9 @@ export class Post {
 
     @prop({type : () => [Comment]})
     comments: Comment[];
+
+    @prop({ref: () => User})
+    owner: Ref<User>
 }
 
 const postModel = getModelForClass(Post);

@@ -1,7 +1,7 @@
-import { prop, getModelForClass } from "@typegoose/typegoose";
+import { prop, getModelForClass, Ref } from "@typegoose/typegoose";
 import {Post} from './Post'
 
-class User {
+export class User {
     @prop({required: true, trim: true })
     name: string;
 
@@ -14,8 +14,8 @@ class User {
     @prop({default: "https://e7.pngegg.com/pngimages/753/432/png-clipart-user-profile-2018-in-sight-user-conference-expo-business-default-business-angle-service.png", trim: true })
     img: string;
 
-    @prop({ type: () => [Post] })
-    posts: Post[];
+    @prop({ ref: () => Post })
+    posts: Ref<Post>[];
 
 }
 
