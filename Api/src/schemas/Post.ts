@@ -14,7 +14,7 @@ export class Post {
     comments: Comment[];
 
     @prop({ref: () => User})
-    owner: Ref<User>
+    user: Ref<User>
 }
 
 const postModel = getModelForClass(Post);
