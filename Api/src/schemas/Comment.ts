@@ -9,5 +9,9 @@ import {prop, getModelForClass, modelOptions} from "@typegoose/typegoose";
 export class Comment {
 
     @prop()
-    text: string
+    text: string;
 }
+
+const commentModel = getModelForClass(Comment);
+
+export default commentModel
