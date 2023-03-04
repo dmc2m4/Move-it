@@ -1,4 +1,5 @@
-import {prop, getModelForClass, modelOptions} from "@typegoose/typegoose";
+import {prop, getModelForClass, modelOptions, Ref} from "@typegoose/typegoose";
+import {User} from "./User"
 
 @modelOptions ({
     schemaOptions:{
@@ -10,6 +11,9 @@ export class Comment {
 
     @prop()
     text: string;
+
+    @prop({ref: () => User})
+    user: Ref<User>
 }
 
 const commentModel = getModelForClass(Comment);
