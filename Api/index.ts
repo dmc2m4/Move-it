@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import User from './schemas/User'
 
 async function connectDB () {
     const db = await mongoose.connect('mongodb://localhost/moveItdb');
@@ -8,11 +7,4 @@ async function connectDB () {
 
 connectDB();
 
-const user = new User ({
-    name: "Daniel",
-    email: "daniel@gmail.com",
-    password: "123456",
-    img: "hola"
-});
 
-console.log(user);
