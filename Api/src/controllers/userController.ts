@@ -16,7 +16,7 @@ const newUser = async (value:{
     await user.save();
 }
 
-const allUsers = async () => {
+const getAllUsers = async () => {
     const users = await User.find();
     return users;
 }
@@ -51,7 +51,7 @@ const deleteUser = async (value: {
 
 export default {
     newUser,
-    allUsers,
+    getAllUsers,
     findUserByEmail,
     updateUser,
     deleteUser
